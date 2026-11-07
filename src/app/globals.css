@@ -1,26 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #191919;
+  --card: #ffffff;
+  --card-border: #e5e7eb;
+  --muted: #69727d;
+  
+  /* Kalvium Brand Colors */
+  --kalvium-red: #EF3837;
+  --kalvium-red-hover: #D92D20;
+  --kalvium-red-light: #FEE4E2;
+  --kalvium-red-subtle: rgba(239, 56, 55, 0.08);
+  --kalvium-dark: #191919;
+  --kalvium-dark-secondary: #1F2124;
+  --kalvium-gray-bg: #F8F9FA;
+  --kalvium-gray-border: #EAE5E5;
+  
+  --font-figtree: 'Figtree', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+.dark {
+  --background: #0d0e11;
+  --foreground: #f3f4f6;
+  --card: #15181c;
+  --card-border: #262a30;
+  --muted: #9ca3af;
+
+  --kalvium-gray-bg: #15181c;
+  --kalvium-gray-border: #262a30;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-figtree);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Kalvium Brand Button & Badge Utilities */
+.btn-kalvium-primary {
+  background-color: #EF3837;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+.btn-kalvium-primary:hover {
+  background-color: #D92D20;
+}
+
+.badge-kalvium {
+  background-color: #FEE4E2;
+  color: #EF3837;
+  border: 1px solid rgba(239, 56, 55, 0.2);
 }
